@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  place: 1
+  score: 1
+  name: MyString
+  double_bogeys: 1
+  round_1: 1
+  round_2: 1
+  round_3: 1
+  round_4: 1
+
+two:
+  place: 1
+  score: 1
+  name: MyString
+  double_bogeys: 1
+  round_1: 1
+  round_2: 1
+  round_3: 1
+  round_4: 1
