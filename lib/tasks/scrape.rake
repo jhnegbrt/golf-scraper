@@ -2,7 +2,6 @@ task scrape: :environment do
 
   require 'nokogiri'
   require 'httparty'
-  require 'byebug'
 
   # url = "https://www.espn.com/golf/leaderboard"
   # unparsed_page = HTTParty.get(url)
