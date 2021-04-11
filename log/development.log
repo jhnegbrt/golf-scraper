@@ -37055,3 +37055,87 @@ Started GET "/cable" for ::1 at 2021-04-10 13:48:59 -0700
 Started GET "/cable/" [WebSocket] for ::1 at 2021-04-10 13:48:59 -0700
 Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
 Finished "/cable/" [WebSocket] for ::1 at 2021-04-10 13:48:59 -0700
+Started GET "/cable" for ::1 at 2021-04-10 14:06:59 -0700
+Started GET "/cable/" [WebSocket] for ::1 at 2021-04-10 14:06:59 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for ::1 at 2021-04-10 14:06:59 -0700
+Finished "/cable/" [WebSocket] for ::1 at 2021-04-10 17:57:31 -0700
+Started GET "/cable" for ::1 at 2021-04-10 17:57:32 -0700
+Started GET "/cable/" [WebSocket] for ::1 at 2021-04-10 17:57:32 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Subscription class not found: "ChatChannel"
+Started GET "/cable" for ::1 at 2021-04-10 17:57:59 -0700
+Started GET "/cable" for ::1 at 2021-04-10 17:57:59 -0700
+Started GET "/cable/" [WebSocket] for ::1 at 2021-04-10 17:57:59 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Started GET "/cable/" [WebSocket] for ::1 at 2021-04-10 17:57:59 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Subscription class not found: "ChatChannel"
+Subscription class not found: "ChatChannel"
+Finished "/cable/" [WebSocket] for ::1 at 2021-04-10 19:29:40 -0700
+Finished "/cable/" [WebSocket] for ::1 at 2021-04-10 19:29:40 -0700
+Started GET "/cable" for ::1 at 2021-04-10 19:29:59 -0700
+Started GET "/cable/" [WebSocket] for ::1 at 2021-04-10 19:29:59 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for ::1 at 2021-04-10 19:29:59 -0700
+Started GET "/cable" for ::1 at 2021-04-10 19:30:59 -0700
+Started GET "/cable/" [WebSocket] for ::1 at 2021-04-10 19:30:59 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for ::1 at 2021-04-10 19:30:59 -0700
+Started GET "/cable" for ::1 at 2021-04-11 05:11:59 -0700
+Started GET "/cable/" [WebSocket] for ::1 at 2021-04-11 05:11:59 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for ::1 at 2021-04-11 05:11:59 -0700
+Started GET "/" for ::1 at 2021-04-11 05:12:12 -0700
+Processing by PlayersController#index as HTML
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mBetter Load (3.0ms)[0m  [1m[34mSELECT "betters".* FROM "betters"[0m
+  ↳ app/views/players/index.html.erb:4
+  [1m[36mPlayer Load (4.0ms)[0m  [1m[34mSELECT "players".* FROM "players" INNER JOIN "betters_players" ON "players"."id" = "betters_players"."player_id" WHERE "betters_players"."better_id" = $1[0m  [["better_id", 1]]
+  ↳ app/models/better.rb:6
+  [1m[36mPlayer Load (3.0ms)[0m  [1m[34mSELECT "players".* FROM "players" INNER JOIN "betters_players" ON "players"."id" = "betters_players"."player_id" WHERE "betters_players"."better_id" = $1[0m  [["better_id", 2]]
+  ↳ app/models/better.rb:6
+  [1m[36mPlayer Load (2.9ms)[0m  [1m[34mSELECT "players".* FROM "players" INNER JOIN "betters_players" ON "players"."id" = "betters_players"."player_id" WHERE "betters_players"."better_id" = $1[0m  [["better_id", 3]]
+  ↳ app/models/better.rb:6
+  [1m[36mPlayer Load (3.0ms)[0m  [1m[34mSELECT "players".* FROM "players" INNER JOIN "betters_players" ON "players"."id" = "betters_players"."player_id" WHERE "betters_players"."better_id" = $1[0m  [["better_id", 4]]
+  ↳ app/models/better.rb:6
+  [1m[36mPlayer Load (3.0ms)[0m  [1m[34mSELECT "players".* FROM "players" INNER JOIN "betters_players" ON "players"."id" = "betters_players"."player_id" WHERE "betters_players"."better_id" = $1[0m  [["better_id", 5]]
+  ↳ app/models/better.rb:6
+  [1m[36mPlayer Load (1.6ms)[0m  [1m[34mSELECT "players".* FROM "players" INNER JOIN "betters_players" ON "players"."id" = "betters_players"."player_id" WHERE "betters_players"."better_id" = $1[0m  [["better_id", 6]]
+  ↳ app/models/better.rb:6
+  [1m[36mPlayer Load (3.0ms)[0m  [1m[34mSELECT "players".* FROM "players" INNER JOIN "betters_players" ON "players"."id" = "betters_players"."player_id" WHERE "betters_players"."better_id" = $1[0m  [["better_id", 7]]
+  ↳ app/models/better.rb:6
+  [1m[36mPlayer Load (1.2ms)[0m  [1m[34mSELECT "players".* FROM "players" INNER JOIN "betters_players" ON "players"."id" = "betters_players"."player_id" WHERE "betters_players"."better_id" = $1[0m  [["better_id", 8]]
+  ↳ app/models/better.rb:6
+  [1m[36mPlayer Load (1.5ms)[0m  [1m[34mSELECT "players".* FROM "players" INNER JOIN "betters_players" ON "players"."id" = "betters_players"."player_id" WHERE "betters_players"."better_id" = $1[0m  [["better_id", 9]]
+  ↳ app/models/better.rb:6
+  [1m[36mPlayer Load (2.5ms)[0m  [1m[34mSELECT "players".* FROM "players" INNER JOIN "betters_players" ON "players"."id" = "betters_players"."player_id" WHERE "betters_players"."better_id" = $1[0m  [["better_id", 10]]
+  ↳ app/models/better.rb:6
+  [1m[36mPlayer Load (1.1ms)[0m  [1m[34mSELECT "players".* FROM "players" INNER JOIN "betters_players" ON "players"."id" = "betters_players"."player_id" WHERE "betters_players"."better_id" = $1[0m  [["better_id", 11]]
+  ↳ app/models/better.rb:6
+  [1m[36mPlayer Load (1.8ms)[0m  [1m[34mSELECT "players".* FROM "players" INNER JOIN "betters_players" ON "players"."id" = "betters_players"."player_id" WHERE "betters_players"."better_id" = $1[0m  [["better_id", 12]]
+  ↳ app/models/better.rb:6
+  [1m[36mPlayer Load (0.9ms)[0m  [1m[34mSELECT "players".* FROM "players" INNER JOIN "betters_players" ON "players"."id" = "betters_players"."player_id" WHERE "betters_players"."better_id" = $1[0m  [["better_id", 13]]
+  ↳ app/models/better.rb:6
+  [1m[36mPlayer Load (1.6ms)[0m  [1m[34mSELECT "players".* FROM "players" INNER JOIN "betters_players" ON "players"."id" = "betters_players"."player_id" WHERE "betters_players"."better_id" = $1[0m  [["better_id", 14]]
+  ↳ app/models/better.rb:6
+  [1m[36mPlayer Load (0.9ms)[0m  [1m[34mSELECT "players".* FROM "players" INNER JOIN "betters_players" ON "players"."id" = "betters_players"."player_id" WHERE "betters_players"."better_id" = $1[0m  [["better_id", 15]]
+  ↳ app/models/better.rb:6
+  [1m[36mPlayer Load (1.4ms)[0m  [1m[34mSELECT "players".* FROM "players" INNER JOIN "betters_players" ON "players"."id" = "betters_players"."player_id" WHERE "betters_players"."better_id" = $1[0m  [["better_id", 16]]
+  ↳ app/models/better.rb:6
+  [1m[36mPlayer Load (1.5ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/players/index.html.erb:14
+  Rendered players/index.html.erb within layouts/application (230.4ms)
+Completed 200 OK in 278ms (Views: 235.9ms | ActiveRecord: 39.7ms)
+
+
+Started GET "/cable" for ::1 at 2021-04-11 05:13:19 -0700
+Started GET "/cable/" [WebSocket] for ::1 at 2021-04-11 05:13:19 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Subscription class not found: "ChatChannel"
+Finished "/cable/" [WebSocket] for ::1 at 2021-04-11 05:13:25 -0700
+Started GET "/cable" for ::1 at 2021-04-11 05:13:40 -0700
+Started GET "/cable/" [WebSocket] for ::1 at 2021-04-11 05:13:40 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Subscription class not found: "ChatChannel"
+Finished "/cable/" [WebSocket] for ::1 at 2021-04-11 05:14:41 -0700
