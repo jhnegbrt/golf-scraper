@@ -1,4 +1,4 @@
-class Better < ApplicationRecord
+class Team < ApplicationRecord
   has_and_belongs_to_many :players
 
   def total_score
@@ -9,5 +9,4 @@ class Better < ApplicationRecord
     array = array.sort
     array = array[0..4].sum
   end
-
 end

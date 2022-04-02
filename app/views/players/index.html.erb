@@ -1,18 +1,9 @@
 
-
-    <ul>
-      <% @all_betters.each do |better| %>
-      <h2><%=better.name%>, score: <%=better.total_score %></h2>
-        <% better.players.each do |player|%>
-        <li><%=player.name%> <%=player.score%></li>
-        <%end%>
-      <%end%>
-    </ul>
-
-
-    <ul>
-      <% @all_players.each do |player|%>
-        
-        <li><%=player.name%> <%=player.score%></li>
-      <%end%>
-    </ul>
+<ul>
+  <% @all_teams.each do |team| %>
+  <h2><%=team.name%>, score: <%=team.total_score %></h2>
+    <% team.players.each do |player|%>
+    <li><%=player.name%> <%=player.score%></li>
+    <%end%>
+  <%end%>
+</ul>

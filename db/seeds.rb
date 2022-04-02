@@ -7,22 +7,22 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-streng = Better.create(name: "John Streng")
-mucklow = Better.create(name: "N Mucklow")
-branley = Better.create(name: "C Branley")
-helzer = Better.create(name: "J Helzer")
-kiendl = Better.create(name: "B Kiendl")
-nagata = Better.create(name: "A Nagata")
-jenkins = Better.create(name: "D Jenkins")
-farmer = Better.create(name: "D Farmer")
-wallace = Better.create(name: "D Wallace")
-jessie = Better.create(name: "J Price")
-howard = Better.create(name: "C HOWARD")
-charb1 = Better.create(name: "P CHARBONNEAU 1")
-charb2 = Better.create(name: "P CHARBONNEAU 2")
-thompson = Better.create(name: "L THOMPSON")
-paul = Better.create(name: "B PAUL")
-marv = Better.create(name: "MARV")
+streng = Team.create(name: "John Streng")
+mucklow = Team.create(name: "N Mucklow")
+branley = Team.create(name: "C Branley")
+helzer = Team.create(name: "J Helzer")
+kiendl = Team.create(name: "B Kiendl")
+nagata = Team.create(name: "A Nagata")
+jenkins = Team.create(name: "D Jenkins")
+farmer = Team.create(name: "D Farmer")
+wallace = Team.create(name: "D Wallace")
+jessie = Team.create(name: "J Price")
+howard = Team.create(name: "C HOWARD")
+charb1 = Team.create(name: "P CHARBONNEAU 1")
+charb2 = Team.create(name: "P CHARBONNEAU 2")
+thompson = Team.create(name: "L THOMPSON")
+paul = Team.create(name: "B PAUL")
+marv = Team.create(name: "MARV")
 
 rahm = Player.find_by(name: "J. Rahm")
 
@@ -139,8 +139,6 @@ wallace.players << oost
 charb2.players << oost
 thompson.players << oost
 
-perez = Player.find_by(name: 'V. Perez')
-howard.players << perez
 
 
 #6 8 9 11 12 15 17 21
@@ -205,13 +203,6 @@ charb2.players << serg
 paul.players << serg
 marv.players << serg
 
-kuch = Player.find_by(name: 'M. Kuchar')
-#6 7 12 13 16 
-streng.players << kuch
-mucklow.players << kuch
-jenkins.players << kuch
-farmer.players << kuch
-howard.players << kuch
 
 conners = Player.find_by(name: 'C. Conners')
 charb1.players << conners
@@ -219,95 +210,5 @@ charb1.players << conners
 lowry = Player.find_by(name: 'S. Lowry')
 thompson.players << lowry
 
-wallacePlayer = Player.find_by(name: 'M. Wallace')
-jessie.players << wallacePlayer
-
 singh = Player.find_by(name: 'V. Singh')
 paul.players << singh
-
-gay = Player.find_by(name: 'B. Gay')
-branley.players << gay
-
-pan = Player.find_by(name: 'C. Pan')
-howard.players << pan
-
-phil = Player.find_by(name: 'P. Mickelson')
-charb2.players << phil
-branley.players << phil
-
-mol = Player.find_by(name: 'F. Molinari')
-kiendl.players << mol
-farmer.players << mol
-
-zj = Player.find_by(name: 'Z. Johnson')
-charb2.players << zj
-
-champ = Player.find_by(name: "C. Champ")
-helzer.players << champ
-nagata.players << champ
-wallace.players << champ
-
-dylan = Player.find_by(name: "D. Frittelli")
-streng.players << dylan
-
-
-ian = Player.find_by(name: 'I. Poulter')
-streng.players << ian
-helzer.players << ian
-
-bubba = Player.find_by(name: "B. Watson")
-#10 12 14 15 17 19 20
-kiendl.players << bubba
-jenkins.players << bubba
-wallace.players << bubba
-charb1.players << bubba
-thompson.players << bubba
-paul.players << bubba
-jessie.players << bubba
-
-
-wood = Player.find_by(name: "G. Woodland")
-#7 13 19 
-
-branley.players << wood
-farmer.players << wood
-thompson.players << wood
-mucklow.players << wood
-
-day = Player.find_by(name: "J. Day")
-
-#11 15 17 21 
-nagata.players << day
-jessie.players << day
-charb1.players << day
-marv.players << day
-
-kim = Player.find_by(name: "S. Woo")
-
-#7 12 16 21
-mucklow.players << kim
-jenkins.players << kim
-howard.players << kim
-marv.players << kim
-
-jt = Player.find_by(name: "J. Thomas")
-mucklow.players << jt
-branley.players << jt
-kiendl.players << jt
-jenkins.players << jt
-farmer.players << jt
-wallace.players << jt
-thompson.players << jt
-charb2.players << jt
-
-
-dj = Player.find_by(name: "D. Johnson")
-mucklow.players << dj
-branley.players << dj
-helzer.players << dj
-nagata.players << dj
-jessie.players << dj
-charb1.players << dj
-charb2.players << dj
-paul.players << dj
-

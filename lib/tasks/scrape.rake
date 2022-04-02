@@ -20,23 +20,21 @@ task scrape: :environment do
   #   players_array << player
   # end
 
-  url = "https://www.cbssports.com/golf/leaderboard/"
+  url = "https://www.cbssports.com/golf/leaderboard/pga-tour/26751651/the-masters/"
   unparsed_page = HTTParty.get(url)
   parsed_page = Nokogiri::HTML(unparsed_page)
   players_array = Array.new
   # players = parsed_page.css('tbody.Table__TBODY')
   all_players = parsed_page.css('tr.TableBase-bodyTr')
+
   all_players.each do |player|
-    name_array = player.children[3].text.split
-    name = name_array[0] + " " + name_array[2]
+
+    name = player.children[1].at_css("span.CellPlayerName--short").text
     player = {
-      place: player.children[1].text,
+      # place: player.children[1].text,
       name: name,
-      score: player.children[4].text,
-      # round_1: player.children[7].text,
-      # round_2: player.children[8].text,
-      # round_3: player.children[9].text,
-      # round_3: player.children[10].text
+      score: 0
+      # score: player.children[4].text,
     }
     players_array << player
   end

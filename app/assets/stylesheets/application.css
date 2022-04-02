@@ -13,3 +13,23 @@
  *= require_tree .
  *= require_self
  */
+
+ .form{
+   display: flex;
+   flex-direction: column;
+ }
+
+ .form input[type="submit"]{
+   width: 10vw;
+ }
+
+ .header{
+   display: flex;
+   flex-direction: row;
+   justify-content: space-evenly;
+   align-items: center;
+   height: 10vh;
+   color: black;
+   background-color: darkgrey;
+   font-size: 5vh;
+ }
