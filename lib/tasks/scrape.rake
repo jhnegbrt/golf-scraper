@@ -28,13 +28,11 @@ task scrape: :environment do
   all_players = parsed_page.css('tr.TableBase-bodyTr')
 
   all_players.each do |player|
-
-    name = player.children[1].at_css("span.CellPlayerName--short").text
+    name = player.children[3].at_css("span.CellPlayerName--short").text
     player = {
       # place: player.children[1].text,
       name: name,
-      score: 0
-      # score: player.children[4].text,
+      score: player.children[4].text,
     }
     players_array << player
   end
