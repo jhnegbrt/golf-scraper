@@ -6,6 +6,7 @@ class Team < ApplicationRecord
     self.players.each do |player|
       array << player.score
     end
-    array = array.sum
+    array = array.sort
+    array = array[0..4].sum
   end
 end
