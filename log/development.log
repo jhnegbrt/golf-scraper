@@ -58690,3 +58690,50 @@ Completed 200 OK in 5740ms (Views: 12.3ms | ActiveRecord: 91.5ms)
 
 
   [1m[36mTeam Load (49.9ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  [1m[35m (40.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6765451939666364595)[0m
+  ↳ bin/rails:9
+  [1m[35m (43.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to Update (20230326212309)
+  [1m[35m (40.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (68.2ms)[0m  [1m[35mCREATE TABLE "updates" ("id" bigserial primary key, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20230326212309_update.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (38.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230326212309"]]
+  ↳ bin/rails:9
+  [1m[35m (44.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to AddIndexToUpdates (20230326212808)
+  [1m[35m (42.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (46.0ms)[0m  [1m[35mCREATE  INDEX  "index_updates_on_created_at" ON "updates"  ("created_at")[0m
+  ↳ db/migrate/20230326212808_add_index_to_updates.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (40.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230326212808"]]
+  ↳ bin/rails:9
+  [1m[35m (40.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (45.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (41.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (40.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (50.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(6765451939666364595)[0m
+  ↳ bin/rails:9
+  [1m[35m (106.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (40.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (39.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (40.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (38.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (39.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (38.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (5128.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "railway"[0m
+  ↳ bin/rails:9
+  [1m[36mTeam Destroy (67.3ms)[0m  [1m[31mDELETE FROM "teams"[0m

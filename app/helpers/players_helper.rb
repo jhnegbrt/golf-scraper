@@ -7,7 +7,7 @@ module PlayersHelper
 
     most_recent_update = Update.order(created_at: :desc).first
 
-    if (most_recent_update == nil || most_recent_update.created_at < 1.minutes.ago)
+    if (most_recent_update == nil || most_recent_update.created_at < 15.minutes.ago)
 
       url = "https://www.espn.com/golf/leaderboard"
       unparsed_page = HTTParty.get(url)
