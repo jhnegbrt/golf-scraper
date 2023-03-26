@@ -3,28 +3,11 @@ task scrape: :environment do
   require 'nokogiri'
   require 'httparty'
 
-  # url = "https://www.espn.com/golf/leaderboard"
-  # unparsed_page = HTTParty.get(url)
-  # parsed_page = Nokogiri::HTML(unparsed_page)
-  # players_array = Array.new
-  # players = parsed_page.css('tbody.Table__TBODY')
-  # all_players = players.css('tr.Table__even')
-  # all_players.each do |player|
-  #   next if player.children[3].nil? || player.children[2].nil?
-  #   player = {
-      
-  #     # place: player.children[0].text,
-  #     score: player.children[3].text,
-  #     name: player.children[2].text
-  #   }
-  #   players_array << player
-  # end
-
   url = "https://www.cbssports.com/golf/leaderboard/pga-tour/26751651/the-masters/"
   unparsed_page = HTTParty.get(url)
   parsed_page = Nokogiri::HTML(unparsed_page)
   players_array = Array.new
-  # players = parsed_page.css('tbody.Table__TBODY')
+
   all_players = parsed_page.css('tr.TableBase-bodyTr')
 
   all_players.each do |player|
@@ -53,6 +36,4 @@ task scrape: :environment do
     end
 
   end
-
-
 end
