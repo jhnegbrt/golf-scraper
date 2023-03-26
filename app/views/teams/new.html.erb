@@ -12,7 +12,7 @@
     <select name="team[players][<%=i%>]" type="select">
       <option selected disabled>Select a player!</option>
       <% @players.each do |player|%>
-        <option value="<%=player.id%>"><%=player.name.split(" ").reverse.join(", ")%></option>
+        <option value="<%=player.id%>"><%=player.name%></option>
       <%end%>
     </select>
   </label>

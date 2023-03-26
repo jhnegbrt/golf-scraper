@@ -47336,3 +47336,1713 @@ Completed 200 OK in 21ms (Views: 19.4ms | ActiveRecord: 0.8ms)
   ↳ lib/tasks/scrape.rake:49
   [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
   ↳ lib/tasks/scrape.rake:49
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (116.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "golf_scraper_development"[0m
+  ↳ bin/rails:9
+  [1m[35m (107.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "golf_scraper_test"[0m
+  ↳ bin/rails:9
+  [1m[35m (327.7ms)[0m  [1m[35mCREATE DATABASE "golf_scraper_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (271.0ms)[0m  [1m[35mCREATE DATABASE "golf_scraper_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (11.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (7.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3315266451395740170)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreatePlayers (20210409191911)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (9.0ms)[0m  [1m[35mCREATE TABLE "players" ("id" bigserial primary key, "place" integer, "score" integer, "name" character varying, "double_bogeys" integer, "round_1" integer, "round_2" integer, "round_3" integer, "round_4" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20210409191911_create_players.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210409191911"]]
+  ↳ bin/rails:9
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateBetters (20210409192033)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (7.7ms)[0m  [1m[35mCREATE TABLE "betters" ("id" bigserial primary key, "name" character varying, "score" integer, "score_guess" integer, "double_bogeys" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20210409192033_create_betters.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210409192033"]]
+  ↳ bin/rails:9
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateJoinTablePlayersBetters (20210409192152)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "betters_players" ("player_id" bigint NOT NULL, "better_id" bigint NOT NULL)[0m
+  ↳ db/migrate/20210409192152_create_join_table_players_betters.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210409192152"]]
+  ↳ bin/rails:9
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to Change (20220402054945)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "betters" RENAME TO "teams"[0m
+  ↳ db/migrate/20220402054945_change.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mALTER INDEX "betters_pkey" RENAME TO "teams_pkey"[0m
+  ↳ db/migrate/20220402054945_change.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "public"."betters_id_seq" RENAME TO "teams_id_seq"[0m
+  ↳ db/migrate/20220402054945_change.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220402054945"]]
+  ↳ bin/rails:9
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to ChangeBetterPlayersToTeamPlayers (20220402055148)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "betters_players" RENAME TO "teams_players"[0m
+  ↳ db/migrate/20220402055148_change_better_players_to_team_players.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220402055148"]]
+  ↳ bin/rails:9
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to RenameBetterId (20220402055338)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "teams_players" RENAME COLUMN "better_id" TO "team_id"[0m
+  ↳ db/migrate/20220402055338_rename_better_id.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220402055338"]]
+  ↳ bin/rails:9
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to ChangeTeamPlayers (20220402063710)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "teams_players" RENAME TO "players_teams"[0m
+  ↳ db/migrate/20220402063710_change_team_players.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220402063710"]]
+  ↳ bin/rails:9
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-03-26 10:37:49.917066"], ["updated_at", "2023-03-26 10:37:49.917066"]]
+  ↳ bin/rails:9
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(3315266451395740170)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Viktor Hovland"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.4ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", -6], ["name", "Viktor Hovland"], ["created_at", "2023-03-26 10:38:11.937082"], ["updated_at", "2023-03-26 10:38:11.937082"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (3.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Xander Schauffele"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.3ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", -3], ["name", "Xander Schauffele"], ["created_at", "2023-03-26 10:38:11.943454"], ["updated_at", "2023-03-26 10:38:11.943454"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Jon Rahm"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.3ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", -3], ["name", "Jon Rahm"], ["created_at", "2023-03-26 10:38:11.953962"], ["updated_at", "2023-03-26 10:38:11.953962"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Cameron Young"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.3ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", -3], ["name", "Cameron Young"], ["created_at", "2023-03-26 10:38:11.958275"], ["updated_at", "2023-03-26 10:38:11.958275"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Scott Stallings"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.3ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", -2], ["name", "Scott Stallings"], ["created_at", "2023-03-26 10:38:11.963231"], ["updated_at", "2023-03-26 10:38:11.963231"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Patrick Reed"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.3ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", -2], ["name", "Patrick Reed"], ["created_at", "2023-03-26 10:38:11.967758"], ["updated_at", "2023-03-26 10:38:11.967758"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Shane Lowry"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.3ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", -2], ["name", "Shane Lowry"], ["created_at", "2023-03-26 10:38:11.971713"], ["updated_at", "2023-03-26 10:38:11.971713"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Seamus Power"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.2ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", -2], ["name", "Seamus Power"], ["created_at", "2023-03-26 10:38:11.975353"], ["updated_at", "2023-03-26 10:38:11.975353"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Adam Scott"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.3ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", -2], ["name", "Adam Scott"], ["created_at", "2023-03-26 10:38:11.978482"], ["updated_at", "2023-03-26 10:38:11.978482"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Hideki Matsuyama"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.2ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", -2], ["name", "Hideki Matsuyama"], ["created_at", "2023-03-26 10:38:11.981655"], ["updated_at", "2023-03-26 10:38:11.981655"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Brooks Koepka"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.2ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", -2], ["name", "Brooks Koepka"], ["created_at", "2023-03-26 10:38:11.984448"], ["updated_at", "2023-03-26 10:38:11.984448"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Fred Couples"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.1ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", -1], ["name", "Fred Couples"], ["created_at", "2023-03-26 10:38:11.987339"], ["updated_at", "2023-03-26 10:38:11.987339"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Chris Kirk"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.1ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", -1], ["name", "Chris Kirk"], ["created_at", "2023-03-26 10:38:11.989786"], ["updated_at", "2023-03-26 10:38:11.989786"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Patrick Cantlay"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.2ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", -1], ["name", "Patrick Cantlay"], ["created_at", "2023-03-26 10:38:11.992319"], ["updated_at", "2023-03-26 10:38:11.992319"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Justin Thomas"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.2ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", -1], ["name", "Justin Thomas"], ["created_at", "2023-03-26 10:38:11.995778"], ["updated_at", "2023-03-26 10:38:11.995778"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Cameron Smith"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.2ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", -1], ["name", "Cameron Smith"], ["created_at", "2023-03-26 10:38:11.998511"], ["updated_at", "2023-03-26 10:38:11.998511"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Sungjae Im"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.2ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", -1], ["name", "Sungjae Im"], ["created_at", "2023-03-26 10:38:12.001305"], ["updated_at", "2023-03-26 10:38:12.001305"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Harold Varner III"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.2ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", -1], ["name", "Harold Varner III"], ["created_at", "2023-03-26 10:38:12.004261"], ["updated_at", "2023-03-26 10:38:12.004261"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Tom Hoge"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.2ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", -1], ["name", "Tom Hoge"], ["created_at", "2023-03-26 10:38:12.007186"], ["updated_at", "2023-03-26 10:38:12.007186"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Billy Horschel"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.2ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", -1], ["name", "Billy Horschel"], ["created_at", "2023-03-26 10:38:12.011210"], ["updated_at", "2023-03-26 10:38:12.011210"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Zach Johnson"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.2ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", -1], ["name", "Zach Johnson"], ["created_at", "2023-03-26 10:38:12.014350"], ["updated_at", "2023-03-26 10:38:12.014350"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Joaquin Niemann"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.2ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", -1], ["name", "Joaquin Niemann"], ["created_at", "2023-03-26 10:38:12.017315"], ["updated_at", "2023-03-26 10:38:12.017315"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Mike Weir"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.2ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", 0], ["name", "Mike Weir"], ["created_at", "2023-03-26 10:38:12.020067"], ["updated_at", "2023-03-26 10:38:12.020067"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Talor Gooch"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.2ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", 0], ["name", "Talor Gooch"], ["created_at", "2023-03-26 10:38:12.022834"], ["updated_at", "2023-03-26 10:38:12.022834"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Kevin Kisner"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.2ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", 0], ["name", "Kevin Kisner"], ["created_at", "2023-03-26 10:38:12.026219"], ["updated_at", "2023-03-26 10:38:12.026219"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Keegan Bradley"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.2ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", 0], ["name", "Keegan Bradley"], ["created_at", "2023-03-26 10:38:12.028994"], ["updated_at", "2023-03-26 10:38:12.028994"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Gary Woodland"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.2ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", 0], ["name", "Gary Woodland"], ["created_at", "2023-03-26 10:38:12.031767"], ["updated_at", "2023-03-26 10:38:12.031767"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Phil Mickelson"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.2ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", 0], ["name", "Phil Mickelson"], ["created_at", "2023-03-26 10:38:12.034281"], ["updated_at", "2023-03-26 10:38:12.034281"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Si Woo Kim"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.2ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", 0], ["name", "Si Woo Kim"], ["created_at", "2023-03-26 10:38:12.036920"], ["updated_at", "2023-03-26 10:38:12.036920"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Ryan Fox"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.2ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", 0], ["name", "Ryan Fox"], ["created_at", "2023-03-26 10:38:12.039570"], ["updated_at", "2023-03-26 10:38:12.039570"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Harris English"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.2ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", 0], ["name", "Harris English"], ["created_at", "2023-03-26 10:38:12.042760"], ["updated_at", "2023-03-26 10:38:12.042760"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Jason Day"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.3ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", 0], ["name", "Jason Day"], ["created_at", "2023-03-26 10:38:12.045574"], ["updated_at", "2023-03-26 10:38:12.045574"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (2.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Tyrrell Hatton"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.3ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", 0], ["name", "Tyrrell Hatton"], ["created_at", "2023-03-26 10:38:12.051024"], ["updated_at", "2023-03-26 10:38:12.051024"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Justin Rose"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.3ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", 0], ["name", "Justin Rose"], ["created_at", "2023-03-26 10:38:12.054498"], ["updated_at", "2023-03-26 10:38:12.054498"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Dustin Johnson"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.2ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", 0], ["name", "Dustin Johnson"], ["created_at", "2023-03-26 10:38:12.058246"], ["updated_at", "2023-03-26 10:38:12.058246"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Matt Fitzpatrick"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.2ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", 0], ["name", "Matt Fitzpatrick"], ["created_at", "2023-03-26 10:38:12.061443"], ["updated_at", "2023-03-26 10:38:12.061443"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Collin Morikawa"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.2ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", 0], ["name", "Collin Morikawa"], ["created_at", "2023-03-26 10:38:12.064756"], ["updated_at", "2023-03-26 10:38:12.064756"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Jason Kokrak"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.2ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", 1], ["name", "Jason Kokrak"], ["created_at", "2023-03-26 10:38:12.067479"], ["updated_at", "2023-03-26 10:38:12.067479"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Russell Henley"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.2ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", 1], ["name", "Russell Henley"], ["created_at", "2023-03-26 10:38:12.070089"], ["updated_at", "2023-03-26 10:38:12.070089"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Adrian Meronk"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.2ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", 1], ["name", "Adrian Meronk"], ["created_at", "2023-03-26 10:38:12.073405"], ["updated_at", "2023-03-26 10:38:12.073405"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Thomas Pieters"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.2ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", 1], ["name", "Thomas Pieters"], ["created_at", "2023-03-26 10:38:12.076059"], ["updated_at", "2023-03-26 10:38:12.076059"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Taylor Moore"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.2ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", 1], ["name", "Taylor Moore"], ["created_at", "2023-03-26 10:38:12.078659"], ["updated_at", "2023-03-26 10:38:12.078659"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "J.T. Poston"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.4ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", 1], ["name", "J.T. Poston"], ["created_at", "2023-03-26 10:38:12.082522"], ["updated_at", "2023-03-26 10:38:12.082522"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Danny Willett"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.3ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", 1], ["name", "Danny Willett"], ["created_at", "2023-03-26 10:38:12.086622"], ["updated_at", "2023-03-26 10:38:12.086622"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Brian Harman"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.2ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", 1], ["name", "Brian Harman"], ["created_at", "2023-03-26 10:38:12.090314"], ["updated_at", "2023-03-26 10:38:12.090314"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Corey Conners"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.2ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", 1], ["name", "Corey Conners"], ["created_at", "2023-03-26 10:38:12.093596"], ["updated_at", "2023-03-26 10:38:12.093596"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Harrison Crowe (a)"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.2ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", 2], ["name", "Harrison Crowe (a)"], ["created_at", "2023-03-26 10:38:12.096216"], ["updated_at", "2023-03-26 10:38:12.096216"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Sergio Garcia"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.2ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", 2], ["name", "Sergio Garcia"], ["created_at", "2023-03-26 10:38:12.098826"], ["updated_at", "2023-03-26 10:38:12.098826"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Keith Mitchell"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.3ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", 2], ["name", "Keith Mitchell"], ["created_at", "2023-03-26 10:38:12.101521"], ["updated_at", "2023-03-26 10:38:12.101521"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Sahith Theegala"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.3ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", 2], ["name", "Sahith Theegala"], ["created_at", "2023-03-26 10:38:12.104390"], ["updated_at", "2023-03-26 10:38:12.104390"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Bubba Watson"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.2ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", 2], ["name", "Bubba Watson"], ["created_at", "2023-03-26 10:38:12.107233"], ["updated_at", "2023-03-26 10:38:12.107233"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Abraham Ancer"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.2ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", 2], ["name", "Abraham Ancer"], ["created_at", "2023-03-26 10:38:12.109796"], ["updated_at", "2023-03-26 10:38:12.109796"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Kurt Kitayama"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.2ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", 2], ["name", "Kurt Kitayama"], ["created_at", "2023-03-26 10:38:12.112294"], ["updated_at", "2023-03-26 10:38:12.112294"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Charl Schwartzel"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.2ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", 2], ["name", "Charl Schwartzel"], ["created_at", "2023-03-26 10:38:12.115824"], ["updated_at", "2023-03-26 10:38:12.115824"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Francesco Molinari"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.2ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", 2], ["name", "Francesco Molinari"], ["created_at", "2023-03-26 10:38:12.118543"], ["updated_at", "2023-03-26 10:38:12.118543"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Bryson DeChambeau"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.2ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", 2], ["name", "Bryson DeChambeau"], ["created_at", "2023-03-26 10:38:12.121350"], ["updated_at", "2023-03-26 10:38:12.121350"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Bernhard Langer"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.2ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", 2], ["name", "Bernhard Langer"], ["created_at", "2023-03-26 10:38:12.123790"], ["updated_at", "2023-03-26 10:38:12.123790"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Ben Carr (a)"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.2ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", 2], ["name", "Ben Carr (a)"], ["created_at", "2023-03-26 10:38:12.126465"], ["updated_at", "2023-03-26 10:38:12.126465"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "K.H. Lee"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.1ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", 2], ["name", "K.H. Lee"], ["created_at", "2023-03-26 10:38:12.128815"], ["updated_at", "2023-03-26 10:38:12.128815"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Sepp Straka"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.2ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", 2], ["name", "Sepp Straka"], ["created_at", "2023-03-26 10:38:12.131473"], ["updated_at", "2023-03-26 10:38:12.131473"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Vijay Singh"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.2ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", 3], ["name", "Vijay Singh"], ["created_at", "2023-03-26 10:38:12.133978"], ["updated_at", "2023-03-26 10:38:12.133978"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Min Woo Lee"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.2ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", 3], ["name", "Min Woo Lee"], ["created_at", "2023-03-26 10:38:12.136706"], ["updated_at", "2023-03-26 10:38:12.136706"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Mateo Fernandez de Oliveira (a)"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.2ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", 3], ["name", "Mateo Fernandez de Oliveira (a)"], ["created_at", "2023-03-26 10:38:12.139332"], ["updated_at", "2023-03-26 10:38:12.139332"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Tiger Woods"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.2ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", 3], ["name", "Tiger Woods"], ["created_at", "2023-03-26 10:38:12.141802"], ["updated_at", "2023-03-26 10:38:12.141802"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Mito Pereira"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.1ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", 3], ["name", "Mito Pereira"], ["created_at", "2023-03-26 10:38:12.144350"], ["updated_at", "2023-03-26 10:38:12.144350"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Gordon Sargent (a)"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.2ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", 3], ["name", "Gordon Sargent (a)"], ["created_at", "2023-03-26 10:38:12.146815"], ["updated_at", "2023-03-26 10:38:12.146815"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Louis Oosthuizen"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.2ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", 4], ["name", "Louis Oosthuizen"], ["created_at", "2023-03-26 10:38:12.149424"], ["updated_at", "2023-03-26 10:38:12.149424"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Kazuki Higa"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.2ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", 4], ["name", "Kazuki Higa"], ["created_at", "2023-03-26 10:38:12.151810"], ["updated_at", "2023-03-26 10:38:12.151810"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Adam Svensson"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.2ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", 4], ["name", "Adam Svensson"], ["created_at", "2023-03-26 10:38:12.154494"], ["updated_at", "2023-03-26 10:38:12.154494"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Mackenzie Hughes"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.1ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", 4], ["name", "Mackenzie Hughes"], ["created_at", "2023-03-26 10:38:12.156872"], ["updated_at", "2023-03-26 10:38:12.156872"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "José María Olazábal"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.2ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", 4], ["name", "José María Olazábal"], ["created_at", "2023-03-26 10:38:12.159495"], ["updated_at", "2023-03-26 10:38:12.159495"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Aldrich Potgieter (a)"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.2ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", 4], ["name", "Aldrich Potgieter (a)"], ["created_at", "2023-03-26 10:38:12.161939"], ["updated_at", "2023-03-26 10:38:12.161939"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Matthew McClean (a)"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.2ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", 5], ["name", "Matthew McClean (a)"], ["created_at", "2023-03-26 10:38:12.165895"], ["updated_at", "2023-03-26 10:38:12.165895"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Cameron Champ"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.2ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", 5], ["name", "Cameron Champ"], ["created_at", "2023-03-26 10:38:12.168620"], ["updated_at", "2023-03-26 10:38:12.168620"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Alex Noren"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.2ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", 6], ["name", "Alex Noren"], ["created_at", "2023-03-26 10:38:12.171143"], ["updated_at", "2023-03-26 10:38:12.171143"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Larry Mize"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.1ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", 6], ["name", "Larry Mize"], ["created_at", "2023-03-26 10:38:12.173774"], ["updated_at", "2023-03-26 10:38:12.173774"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Sandy Lyle"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.1ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", 9], ["name", "Sandy Lyle"], ["created_at", "2023-03-26 10:38:12.176313"], ["updated_at", "2023-03-26 10:38:12.176313"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Sam Bennett (a)"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.2ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", 0], ["name", "Sam Bennett (a)"], ["created_at", "2023-03-26 10:38:12.178795"], ["updated_at", "2023-03-26 10:38:12.178795"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Max Homa"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.2ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", 0], ["name", "Max Homa"], ["created_at", "2023-03-26 10:38:12.181516"], ["updated_at", "2023-03-26 10:38:12.181516"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Scottie Scheffler"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.2ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", 0], ["name", "Scottie Scheffler"], ["created_at", "2023-03-26 10:38:12.184433"], ["updated_at", "2023-03-26 10:38:12.184433"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Rory McIlroy"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.2ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", 0], ["name", "Rory McIlroy"], ["created_at", "2023-03-26 10:38:12.186941"], ["updated_at", "2023-03-26 10:38:12.186941"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Sam Burns"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.2ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", 0], ["name", "Sam Burns"], ["created_at", "2023-03-26 10:38:12.189412"], ["updated_at", "2023-03-26 10:38:12.189412"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Tom Kim"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.1ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", 0], ["name", "Tom Kim"], ["created_at", "2023-03-26 10:38:12.191917"], ["updated_at", "2023-03-26 10:38:12.191917"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Tony Finau"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.2ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", 0], ["name", "Tony Finau"], ["created_at", "2023-03-26 10:38:12.194398"], ["updated_at", "2023-03-26 10:38:12.194398"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Jordan Spieth"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.2ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", 0], ["name", "Jordan Spieth"], ["created_at", "2023-03-26 10:38:12.197500"], ["updated_at", "2023-03-26 10:38:12.197500"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Tommy Fleetwood"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.3ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", 0], ["name", "Tommy Fleetwood"], ["created_at", "2023-03-26 10:38:12.201957"], ["updated_at", "2023-03-26 10:38:12.201957"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (8.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Kevin Na"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.4ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", 0], ["name", "Kevin Na"], ["created_at", "2023-03-26 10:38:12.213479"], ["updated_at", "2023-03-26 10:38:12.213479"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (15.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Will Zalatoris"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.2ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", 0], ["name", "Will Zalatoris"], ["created_at", "2023-03-26 10:38:12.231782"], ["updated_at", "2023-03-26 10:38:12.231782"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+Started GET "/" for 127.0.0.1 at 2023-03-26 04:40:20 -0600
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/jhnegbrt/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+Processing by PlayersController#index as HTML
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.6ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/views/players/index.html.erb:3
+  Rendered players/index.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 258ms (Views: 242.8ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/teams/new" for 127.0.0.1 at 2023-03-26 04:40:23 -0600
+Processing by TeamsController#new as HTML
+  Rendering teams/new.html.erb within layouts/application
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/teams/new.html.erb:14
+  Rendered teams/new.html.erb within layouts/application (16.4ms)
+Completed 200 OK in 24ms (Views: 20.4ms | ActiveRecord: 2.8ms)
+
+
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+Started GET "/teams/new" for 127.0.0.1 at 2023-03-26 05:13:34 -0600
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/jhnegbrt/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+Processing by TeamsController#new as HTML
+  Rendering teams/new.html.erb within layouts/application
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/teams/new.html.erb:14
+  Rendered teams/new.html.erb within layouts/application (37.3ms)
+Completed 200 OK in 202ms (Views: 186.2ms | ActiveRecord: 3.2ms)
+
+
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Viktor Hovland"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Update (0.4ms)[0m  [1m[33mUPDATE "players" SET "score" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["score", -7], ["updated_at", "2023-03-26 12:01:50.944733"], ["id", 1]]
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (2.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Jon Rahm"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Update (0.3ms)[0m  [1m[33mUPDATE "players" SET "score" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["score", -6], ["updated_at", "2023-03-26 12:01:50.950344"], ["id", 3]]
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Adam Scott"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Update (0.3ms)[0m  [1m[33mUPDATE "players" SET "score" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["score", -5], ["updated_at", "2023-03-26 12:01:50.955251"], ["id", 9]]
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Cameron Young"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Update (0.2ms)[0m  [1m[33mUPDATE "players" SET "score" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["score", -5], ["updated_at", "2023-03-26 12:01:50.959443"], ["id", 4]]
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Shane Lowry"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Update (0.1ms)[0m  [1m[33mUPDATE "players" SET "score" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["score", -4], ["updated_at", "2023-03-26 12:01:50.962893"], ["id", 7]]
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Xander Schauffele"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Update (0.1ms)[0m  [1m[33mUPDATE "players" SET "score" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["score", -4], ["updated_at", "2023-03-26 12:01:50.965776"], ["id", 2]]
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Brooks Koepka"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Update (0.2ms)[0m  [1m[33mUPDATE "players" SET "score" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["score", -4], ["updated_at", "2023-03-26 12:01:50.968757"], ["id", 11]]
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Sam Bennett (a)"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Update (0.2ms)[0m  [1m[33mUPDATE "players" SET "score" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["score", -4], ["updated_at", "2023-03-26 12:01:50.971931"], ["id", 78]]
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Sam Burns"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Update (0.2ms)[0m  [1m[33mUPDATE "players" SET "score" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["score", -4], ["updated_at", "2023-03-26 12:01:50.975478"], ["id", 82]]
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Chris Kirk"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Update (0.2ms)[0m  [1m[33mUPDATE "players" SET "score" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["score", -3], ["updated_at", "2023-03-26 12:01:50.978328"], ["id", 13]]
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Justin Thomas"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Update (0.2ms)[0m  [1m[33mUPDATE "players" SET "score" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["score", -3], ["updated_at", "2023-03-26 12:01:50.981246"], ["id", 15]]
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Scott Stallings"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Keegan Bradley"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Update (0.2ms)[0m  [1m[33mUPDATE "players" SET "score" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["score", -2], ["updated_at", "2023-03-26 12:01:50.984895"], ["id", 26]]
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Cameron Smith"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Update (0.2ms)[0m  [1m[33mUPDATE "players" SET "score" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["score", -2], ["updated_at", "2023-03-26 12:01:50.987511"], ["id", 16]]
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Hideki Matsuyama"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Phil Mickelson"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Update (0.2ms)[0m  [1m[33mUPDATE "players" SET "score" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["score", -2], ["updated_at", "2023-03-26 12:01:50.991282"], ["id", 28]]
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Joaquin Niemann"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Update (0.2ms)[0m  [1m[33mUPDATE "players" SET "score" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["score", -2], ["updated_at", "2023-03-26 12:01:50.994052"], ["id", 22]]
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Scottie Scheffler"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Update (0.2ms)[0m  [1m[33mUPDATE "players" SET "score" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["score", -2], ["updated_at", "2023-03-26 12:01:50.996740"], ["id", 80]]
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (2.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Tom Kim"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Update (0.2ms)[0m  [1m[33mUPDATE "players" SET "score" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["score", -2], ["updated_at", "2023-03-26 12:01:51.000959"], ["id", 83]]
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Jordan Spieth"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Update (0.5ms)[0m  [1m[33mUPDATE "players" SET "score" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["score", -2], ["updated_at", "2023-03-26 12:01:51.003576"], ["id", 85]]
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Fred Couples"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Patrick Reed"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Update (0.2ms)[0m  [1m[33mUPDATE "players" SET "score" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["score", -1], ["updated_at", "2023-03-26 12:01:51.008725"], ["id", 6]]
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Harold Varner III"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Jason Day"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Update (0.2ms)[0m  [1m[33mUPDATE "players" SET "score" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["score", -1], ["updated_at", "2023-03-26 12:01:51.012597"], ["id", 32]]
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Justin Rose"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Update (0.2ms)[0m  [1m[33mUPDATE "players" SET "score" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["score", -1], ["updated_at", "2023-03-26 12:01:51.015761"], ["id", 34]]
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Collin Morikawa"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Update (0.2ms)[0m  [1m[33mUPDATE "players" SET "score" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["score", -1], ["updated_at", "2023-03-26 12:01:51.019200"], ["id", 37]]
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Mike Weir"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Update (0.2ms)[0m  [1m[33mUPDATE "players" SET "score" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["score", 0], ["updated_at", "2023-03-26 12:01:51.022377"], ["id", 23]]
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Talor Gooch"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Update (0.2ms)[0m  [1m[33mUPDATE "players" SET "score" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["score", 0], ["updated_at", "2023-03-26 12:01:51.025269"], ["id", 24]]
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Kevin Kisner"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Update (0.2ms)[0m  [1m[33mUPDATE "players" SET "score" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["score", 0], ["updated_at", "2023-03-26 12:01:51.027966"], ["id", 25]]
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Abraham Ancer"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Update (0.2ms)[0m  [1m[33mUPDATE "players" SET "score" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["score", 0], ["updated_at", "2023-03-26 12:01:51.030508"], ["id", 52]]
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Patrick Cantlay"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Update (0.2ms)[0m  [1m[33mUPDATE "players" SET "score" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["score", 0], ["updated_at", "2023-03-26 12:01:51.033341"], ["id", 14]]
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Sungjae Im"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Update (0.2ms)[0m  [1m[33mUPDATE "players" SET "score" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["score", 0], ["updated_at", "2023-03-26 12:01:51.036293"], ["id", 17]]
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Gary Woodland"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Update (0.2ms)[0m  [1m[33mUPDATE "players" SET "score" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["score", 0], ["updated_at", "2023-03-26 12:01:51.039424"], ["id", 27]]
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Billy Horschel"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Update (0.2ms)[0m  [1m[33mUPDATE "players" SET "score" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["score", 0], ["updated_at", "2023-03-26 12:01:51.042405"], ["id", 20]]
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Ryan Fox"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Update (0.2ms)[0m  [1m[33mUPDATE "players" SET "score" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["score", 0], ["updated_at", "2023-03-26 12:01:51.046278"], ["id", 30]]
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Zach Johnson"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Update (0.2ms)[0m  [1m[33mUPDATE "players" SET "score" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["score", 0], ["updated_at", "2023-03-26 12:01:51.049150"], ["id", 21]]
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Tyrrell Hatton"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Update (0.2ms)[0m  [1m[33mUPDATE "players" SET "score" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["score", 0], ["updated_at", "2023-03-26 12:01:51.051849"], ["id", 33]]
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Rory McIlroy"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Update (0.1ms)[0m  [1m[33mUPDATE "players" SET "score" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["score", 0], ["updated_at", "2023-03-26 12:01:51.054716"], ["id", 81]]
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Tony Finau"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Update (0.1ms)[0m  [1m[33mUPDATE "players" SET "score" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["score", 0], ["updated_at", "2023-03-26 12:01:51.057582"], ["id", 84]]
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Tommy Fleetwood"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Update (0.2ms)[0m  [1m[33mUPDATE "players" SET "score" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["score", 0], ["updated_at", "2023-03-26 12:01:51.060475"], ["id", 86]]
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Jason Kokrak"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Russell Henley"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Adrian Meronk"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Sahith Theegala"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Update (0.2ms)[0m  [1m[33mUPDATE "players" SET "score" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["score", 1], ["updated_at", "2023-03-26 12:01:51.066818"], ["id", 50]]
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Séamus Power"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Create (0.2ms)[0m  [1m[32mINSERT INTO "players" ("score", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["score", 1], ["name", "Séamus Power"], ["created_at", "2023-03-26 12:01:51.069837"], ["updated_at", "2023-03-26 12:01:51.069837"]]
+  ↳ lib/tasks/scrape.rake:27
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:27
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Tiger Woods"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Update (0.2ms)[0m  [1m[33mUPDATE "players" SET "score" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["score", 1], ["updated_at", "2023-03-26 12:01:51.072857"], ["id", 64]]
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Taylor Moore"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Francesco Molinari"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Update (0.2ms)[0m  [1m[33mUPDATE "players" SET "score" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["score", 1], ["updated_at", "2023-03-26 12:01:51.077013"], ["id", 55]]
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Tom Hoge"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Update (0.1ms)[0m  [1m[33mUPDATE "players" SET "score" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["score", 1], ["updated_at", "2023-03-26 12:01:51.079833"], ["id", 19]]
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Si Woo Kim"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Update (0.2ms)[0m  [1m[33mUPDATE "players" SET "score" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["score", 1], ["updated_at", "2023-03-26 12:01:51.082728"], ["id", 29]]
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Harris English"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Update (0.1ms)[0m  [1m[33mUPDATE "players" SET "score" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["score", 1], ["updated_at", "2023-03-26 12:01:51.085621"], ["id", 31]]
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Dustin Johnson"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Update (0.2ms)[0m  [1m[33mUPDATE "players" SET "score" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["score", 1], ["updated_at", "2023-03-26 12:01:51.088892"], ["id", 35]]
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Corey Conners"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Max Homa"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Update (0.2ms)[0m  [1m[33mUPDATE "players" SET "score" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["score", 1], ["updated_at", "2023-03-26 12:01:51.092791"], ["id", 79]]
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Sergio Garcia"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Thomas Pieters"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Update (0.2ms)[0m  [1m[33mUPDATE "players" SET "score" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["score", 2], ["updated_at", "2023-03-26 12:01:51.096896"], ["id", 41]]
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Kurt Kitayama"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Charl Schwartzel"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Bernhard Langer"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Danny Willett"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Update (0.2ms)[0m  [1m[33mUPDATE "players" SET "score" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["score", 2], ["updated_at", "2023-03-26 12:01:51.102670"], ["id", 44]]
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Gordon Sargent (a)"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Update (0.2ms)[0m  [1m[33mUPDATE "players" SET "score" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["score", 2], ["updated_at", "2023-03-26 12:01:51.105362"], ["id", 66]]
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Matt Fitzpatrick"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Update (0.2ms)[0m  [1m[33mUPDATE "players" SET "score" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["score", 2], ["updated_at", "2023-03-26 12:01:51.107931"], ["id", 36]]
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Vijay Singh"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Min Woo Lee"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Harrison Crowe (a)"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Update (0.2ms)[0m  [1m[33mUPDATE "players" SET "score" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["score", 3], ["updated_at", "2023-03-26 12:01:51.112741"], ["id", 47]]
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Keith Mitchell"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Update (0.2ms)[0m  [1m[33mUPDATE "players" SET "score" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["score", 3], ["updated_at", "2023-03-26 12:01:51.116720"], ["id", 49]]
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Adam Svensson"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Update (0.2ms)[0m  [1m[33mUPDATE "players" SET "score" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["score", 3], ["updated_at", "2023-03-26 12:01:51.119218"], ["id", 69]]
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Cameron Champ"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Update (0.2ms)[0m  [1m[33mUPDATE "players" SET "score" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["score", 3], ["updated_at", "2023-03-26 12:01:51.121868"], ["id", 74]]
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "J.T. Poston"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Update (0.2ms)[0m  [1m[33mUPDATE "players" SET "score" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["score", 3], ["updated_at", "2023-03-26 12:01:51.124564"], ["id", 43]]
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Mito Pereira"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Ben Carr (a)"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Update (0.2ms)[0m  [1m[33mUPDATE "players" SET "score" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["score", 3], ["updated_at", "2023-03-26 12:01:51.128375"], ["id", 58]]
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "K.H. Lee"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Update (0.2ms)[0m  [1m[33mUPDATE "players" SET "score" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["score", 3], ["updated_at", "2023-03-26 12:01:51.131211"], ["id", 59]]
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Sepp Straka"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Update (0.2ms)[0m  [1m[33mUPDATE "players" SET "score" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["score", 3], ["updated_at", "2023-03-26 12:01:51.133847"], ["id", 60]]
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Louis Oosthuizen"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Kazuki Higa"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Mackenzie Hughes"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Mateo Fernandez de Oliveira (a)"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Update (0.2ms)[0m  [1m[33mUPDATE "players" SET "score" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["score", 4], ["updated_at", "2023-03-26 12:01:51.139363"], ["id", 63]]
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Bryson DeChambeau"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Update (0.2ms)[0m  [1m[33mUPDATE "players" SET "score" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["score", 4], ["updated_at", "2023-03-26 12:01:51.142029"], ["id", 56]]
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Brian Harman"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Update (0.2ms)[0m  [1m[33mUPDATE "players" SET "score" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["score", 4], ["updated_at", "2023-03-26 12:01:51.145152"], ["id", 45]]
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Matthew McClean (a)"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Bubba Watson"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Update (0.2ms)[0m  [1m[33mUPDATE "players" SET "score" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["score", 5], ["updated_at", "2023-03-26 12:01:51.148882"], ["id", 51]]
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "José María Olazábal"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Update (0.2ms)[0m  [1m[33mUPDATE "players" SET "score" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["score", 5], ["updated_at", "2023-03-26 12:01:51.151460"], ["id", 71]]
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Alex Noren"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Aldrich Potgieter (a)"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Update (0.2ms)[0m  [1m[33mUPDATE "players" SET "score" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["score", 6], ["updated_at", "2023-03-26 12:01:51.155086"], ["id", 72]]
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Larry Mize"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Update (0.2ms)[0m  [1m[33mUPDATE "players" SET "score" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["score", 7], ["updated_at", "2023-03-26 12:01:51.157522"], ["id", 76]]
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Sandy Lyle"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Kevin Na"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Update (0.2ms)[0m  [1m[33mUPDATE "players" SET "score" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["score", 0], ["updated_at", "2023-03-26 12:01:51.161960"], ["id", 87]]
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Load (0.1ms)[0m  [1m[34mSELECT  "players".* FROM "players" WHERE "players"."name" = $1 LIMIT $2[0m  [["name", "Will Zalatoris"], ["LIMIT", 1]]
+  ↳ lib/tasks/scrape.rake:25
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[36mPlayer Update (0.2ms)[0m  [1m[33mUPDATE "players" SET "score" = $1, "updated_at" = $2 WHERE "players"."id" = $3[0m  [["score", 0], ["updated_at", "2023-03-26 12:01:51.164686"], ["id", 88]]
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ lib/tasks/scrape.rake:32
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (5025.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "golf_scraper_development"[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (111.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "golf_scraper_development"[0m
+  ↳ bin/rails:9
+  [1m[35m (114.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "golf_scraper_test"[0m
+  ↳ bin/rails:9
+  [1m[35m (268.0ms)[0m  [1m[35mCREATE DATABASE "golf_scraper_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (267.7ms)[0m  [1m[35mCREATE DATABASE "golf_scraper_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (13.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (9.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3315266451395740170)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreatePlayers (20210409191911)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (9.1ms)[0m  [1m[35mCREATE TABLE "players" ("id" bigserial primary key, "place" integer, "score" integer, "name" character varying, "double_bogeys" integer, "round_1" integer, "round_2" integer, "round_3" integer, "round_4" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20210409191911_create_players.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210409191911"]]
+  ↳ bin/rails:9
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateBetters (20210409192033)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (8.8ms)[0m  [1m[35mCREATE TABLE "betters" ("id" bigserial primary key, "name" character varying, "score" integer, "score_guess" integer, "double_bogeys" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20210409192033_create_betters.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210409192033"]]
+  ↳ bin/rails:9
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateJoinTablePlayersBetters (20210409192152)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "betters_players" ("player_id" bigint NOT NULL, "better_id" bigint NOT NULL)[0m
+  ↳ db/migrate/20210409192152_create_join_table_players_betters.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210409192152"]]
+  ↳ bin/rails:9
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to Change (20220402054945)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "betters" RENAME TO "teams"[0m
+  ↳ db/migrate/20220402054945_change.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mALTER INDEX "betters_pkey" RENAME TO "teams_pkey"[0m
+  ↳ db/migrate/20220402054945_change.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "public"."betters_id_seq" RENAME TO "teams_id_seq"[0m
+  ↳ db/migrate/20220402054945_change.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220402054945"]]
+  ↳ bin/rails:9
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to ChangeBetterPlayersToTeamPlayers (20220402055148)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "betters_players" RENAME TO "teams_players"[0m
+  ↳ db/migrate/20220402055148_change_better_players_to_team_players.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220402055148"]]
+  ↳ bin/rails:9
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to RenameBetterId (20220402055338)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "teams_players" RENAME COLUMN "better_id" TO "team_id"[0m
+  ↳ db/migrate/20220402055338_rename_better_id.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220402055338"]]
+  ↳ bin/rails:9
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to ChangeTeamPlayers (20220402063710)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "teams_players" RENAME TO "players_teams"[0m
+  ↳ db/migrate/20220402063710_change_team_players.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220402063710"]]
+  ↳ bin/rails:9
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-03-26 12:06:48.463866"], ["updated_at", "2023-03-26 12:06:48.463866"]]
+  ↳ bin/rails:9
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(3315266451395740170)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/" for 127.0.0.1 at 2023-03-26 06:06:59 -0600
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/jhnegbrt/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+Processing by PlayersController#index as HTML
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.4ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/views/players/index.html.erb:3
+  Rendered players/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 220ms (Views: 206.6ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/teams/new" for 127.0.0.1 at 2023-03-26 06:07:03 -0600
+Processing by TeamsController#new as HTML
+  Rendering teams/new.html.erb within layouts/application
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/teams/new.html.erb:14
+  Rendered teams/new.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 15ms (Views: 11.3ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/teams/new" for 127.0.0.1 at 2023-03-26 06:07:31 -0600
+Processing by TeamsController#new as HTML
+  Rendering teams/new.html.erb within layouts/application
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/teams/new.html.erb:14
+  Rendered teams/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 9ms (Views: 8.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/teams/new" for 127.0.0.1 at 2023-03-26 06:08:09 -0600
+Processing by TeamsController#new as HTML
+  Rendering teams/new.html.erb within layouts/application
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/teams/new.html.erb:14
+  Rendered teams/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 10ms (Views: 8.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/teams/new" for 127.0.0.1 at 2023-03-26 06:08:35 -0600
+Processing by TeamsController#new as HTML
+  Rendering teams/new.html.erb within layouts/application
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/teams/new.html.erb:14
+  Rendered teams/new.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 12ms (Views: 10.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/teams/new" for 127.0.0.1 at 2023-03-26 06:09:16 -0600
+Processing by TeamsController#new as HTML
+  Rendering teams/new.html.erb within layouts/application
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/teams/new.html.erb:14
+  Rendered teams/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 9ms (Views: 8.1ms | ActiveRecord: 0.4ms)
+
+
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+Started GET "/" for 127.0.0.1 at 2023-03-26 06:17:45 -0600
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/jhnegbrt/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.5/lib/active_record/log_subscriber.rb:98
+Processing by PlayersController#index as HTML
+  Rendering players/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.4ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/views/players/index.html.erb:3
+  Rendered players/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 168ms (Views: 157.4ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/teams/new" for 127.0.0.1 at 2023-03-26 06:17:49 -0600
+Processing by TeamsController#new as HTML
+  Rendering teams/new.html.erb within layouts/application
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/teams/new.html.erb:14
+  Rendered teams/new.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 14ms (Views: 12.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/teams/new" for 127.0.0.1 at 2023-03-26 06:18:59 -0600
+Processing by TeamsController#new as HTML
+  Rendering teams/new.html.erb within layouts/application
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/teams/new.html.erb:14
+  Rendered teams/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 10ms (Views: 9.0ms | ActiveRecord: 0.4ms)
+
+

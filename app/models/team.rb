@@ -7,6 +7,6 @@ class Team < ApplicationRecord
       array << player.score
     end
     array = array.sort
-    array = array[0..4].sum
+    array = array[0..5].sum
   end
 end

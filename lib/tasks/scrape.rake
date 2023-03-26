@@ -1,21 +1,24 @@
 task scrape: :environment do
 
+  puts "scraping"
+
   require 'nokogiri'
   require 'httparty'
 
-  url = "https://www.cbssports.com/golf/leaderboard/pga-tour/26751651/the-masters/"
+
+  url = "https://www.espn.com/golf/leaderboard"
   unparsed_page = HTTParty.get(url)
   parsed_page = Nokogiri::HTML(unparsed_page)
   players_array = Array.new
 
-  all_players = parsed_page.css('tr.TableBase-bodyTr')
+  table = parsed_page.css('tbody.Table__TBODY')
+  all_players = table.children
 
   all_players.each do |player|
-    name = player.children[3].at_css("span.CellPlayerName--short").text
+    name = player.children[2].text
     player = {
-      # place: player.children[1].text,
       name: name,
-      score: player.children[4].text,
+      score: player.children[3].text,
     }
     players_array << player
   end
@@ -24,7 +27,6 @@ task scrape: :environment do
     this_player = Player.find_by(name: player[:name])
     if this_player.nil?
       Player.create(
-        # place: player[:place],
         name: player[:name],
         score: player[:score]
       )
